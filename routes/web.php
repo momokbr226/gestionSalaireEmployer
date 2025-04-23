@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,8 +9,6 @@ Route::get(uri: '/', action: [AuthController::class, 'login'])->name(name: 'logi
 Route::post(uri: '/login', action: [AuthController::class, 'HandleLogin'])->name(name: 'HandleLogin');
 
 
-/*ROUTE <SECURISE>
+/*ROUTE <SECURISE*/
 
-Route::get(uri: '/dashboard', action: function () {
-    return view(view: 'dashboard');
-})->name(name: 'dashboard')->middleware(middleware: 'auth');*/
+Route::get('dashboard', [AppController::class, 'index'])->name('dashboard');
