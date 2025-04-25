@@ -1,5 +1,8 @@
 <?php
-
+use Illuminate\Support\Facades\Facade;
+use App\Helpers\ConfigHelper;
+use App\Models\Configuration;
+use Illuminate\Support\ServiceProvider;
 return [
 
     /*
@@ -122,5 +125,10 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+    'aliases' =>Facade::defaultAliases()->merge( [
+        'AppNameGetter' => ConfigHelper::class
+    
+    ])->toArray(),  
 
 ];

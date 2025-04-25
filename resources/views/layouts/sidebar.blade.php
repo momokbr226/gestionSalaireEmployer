@@ -6,7 +6,12 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span class="logo-text"></span></a>
+		            <a class="app-logo" href="index.html">
+						<img src="https://ui-avatars.com/api/?name={{ AppNameGetter::getAppName() }}"  class="logo-icon me-2">
+						
+
+					
+					<img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span class="logo-text">{{ AppNameGetter::getAppName() }} </span></a>
 	
 		        </div><!--//app-branding-->  
 		        
