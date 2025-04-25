@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\DepartementController;
+use App\Models\Configuration;
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,6 +49,15 @@ Route::middleware('auth')->group(function ()
 
     });
 
+    //CONFIGURATION
+        Route::prefix('configuration')->group(function(){
+        //Route::get('/', [ConfigurationController::class, 'index'])->name('configurations');
+        //Route::get('/create', [ConfigurationController::class, 'create'])->name('configurations.create');
+        //Route::post('/store', [ConfigurationController::class, 'store'])->name('configurations.store');
+        //Route::get('/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('configurations.delete');
+
+    });
+
 });
 
 
@@ -82,4 +93,16 @@ Route::middleware('auth')->group(function ()
 
     //DASHBOARD
     Route::get('dashboard', [AppController::class, 'index'])->name('dashboard');
+
+
+    //CONFIGURATION
+     Route::get('configurations', [ConfigurationController::class, 'index'])->name('configurations');
+
+     Route::get('configurations/create', [ConfigurationController::class, 'create'])->name('configurations.create');
+
+    Route::post('configurations/store', [ConfigurationController::class, 'store'])->name('configurations.store');
+
+    Route::get('configurations/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('configurations.delete');
+
+
 

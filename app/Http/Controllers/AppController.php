@@ -6,6 +6,7 @@ use App\Models\Departement;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Configuration;
 
 class AppController extends Controller
 {
@@ -15,6 +16,8 @@ class AppController extends Controller
         $totalDepartements= Departement::all()->count();
         $totalEmployers= Employer::all()->count();
         $totalAdministrateurs= User::all()->count();
+
+        
         return view('dashboard', compact('totalDepartements', 'totalEmployers', 'totalAdministrateurs'));
     }
 }
