@@ -18,14 +18,19 @@ Route::middleware('auth')->group(function ()
 {
     //Route::get('dashboard', [AppController::class, 'index'])->name('dashboard');
 
-//SECURISER LE CONTROLEUR EMPLOYER
+//SECURISER LE CONTROLEUR EMPLOYER ET LE CONTROLEUR DEPARTEMENT
 
     Route::prefix('employers')->group(function()
     {
-
+        //SECURISER LE CONTROLEUR EMPLOYER
+         
         //Route::get('/', [EmployerController::class, 'index'])->name('employer.index'); 
-        Route::get('/create', [EmployerController::class, 'create'])->name('employer.create'); 
-        Route::get('/edit/{employer}', [EmployerController::class, 'edit'])->name('employer.edit'); 
+        //Route::get('/create', [EmployerController::class, 'create'])->name('employer.create'); 
+        //Route::post('/store', [EmployerController::class, 'store'])->name('employer.store');
+        //Route::put('/employers/update/{employer}',[EmployerController::class, 'update'])->name('employer.update');
+        //Route::get('/edit/{employer}', [EmployerController::class, 'edit'])->name('employer.edit'); 
+        //Route::get('/departements/{departement}',[DepartementController::class, 'delete'])->name('departement.delete');
+
     });
 
     //SECURISER LE CONTROLEUR DEPARTEMENT
@@ -34,10 +39,11 @@ Route::middleware('auth')->group(function ()
 
         //Route::get('/', [DepartementController::class, 'index'])->name('departement.index'); 
         //Route::get('/create', [DepartementController::class, 'create'])->name('departement.create'); 
-        //Route::post('/create', [DepartementController::class, 'store'])->name('departement.store'); 
-        Route::get('/edit/{departement}', [DepartementController::class, 'edit'])->name('departement.edit'); 
+        //Route::post('/store', [DepartementController::class, 'store'])->name('departement.store'); 
+        //Route::get('/edit/{departement}', [DepartementController::class, 'edit'])->name('departement.edit'); 
         //Route::put('/update/{departement}',[DepartementController::class, 'update'])->name('departement.update'); 
         //Route::get('/{departement}',[DepartementController::class, 'delete'])->name('departement.delete');
+       
 
     });
 
@@ -49,7 +55,15 @@ Route::middleware('auth')->group(function ()
 //EMPLOYER
     Route::get('/employers/create', [EmployerController::class, 'create'])->name('employer.create'); 
 
+     Route::post('/employers/store', [EmployerController::class, 'store'])->name('employer.store');
+
     Route::get('/employers', [EmployerController::class, 'index'])->name('employer.index'); 
+
+    Route::get('/employers/edit/{employer}', [EmployerController::class, 'edit'])->name('employer.edit'); 
+
+    Route::put('/employers/update/{employer}',[EmployerController::class, 'update'])->name('employer.update');
+
+    Route::get('/employers/{employer}',[EmployerController::class, 'delete'])->name('employer.delete');
 
     //DEPARTEMENT
     Route::get('/departements', [DepartementController::class, 'index'])->name('departement.index');

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('nom', 255);
             $table->string('prenom', 255);
             $table->string('email', 255)->unique();
-            $table->string('contact');
+            $table->integer('contact')->unique();
+            $table->integer('montant_journalier')->nullabe();
             $table->unsignedBigInteger('departement_id');
             $table->foreign('departement_id')->references('id')->on('departements');
-            $table->integer('montant_journalier')->nullabe();
             $table->timestamps();
         });
     }
