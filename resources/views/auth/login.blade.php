@@ -10,7 +10,10 @@
     <div class="box">
         <h1>Espace de connexion</h1>
 
-        {{ Hash::make('azerty') }}
+        @if (Session::get('success'))
+            <b style="font-size: 10px; color: green;">
+                {{ session('success') }}</b>
+        @endif
 
         @if (Session::get('error_msg'))
             <b style="font-size: 10px; color: red;">
