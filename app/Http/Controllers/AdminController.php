@@ -10,7 +10,7 @@ use App\Models\ResetCodePassword;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Exception;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\SendEmailToAdminAfterRegistrationNotification;
 use Carbon\Carbon;
@@ -104,9 +104,23 @@ class AdminController extends Controller
     {
          try
         {
-            $user->delete() ;
+            //Vérification de l'existence de l'utilisateur
+            //dd($user);
+            
+            //Suppression de compte admin
+            $connectedAdminId = Auth::user()->id;
+            if( $connectedAdminId != $user->id )
+            {
+                
+                $user->delete();
+                return redirect()->route('administrateurs')->with('success', 'L\'administrateur  á été  supprimé avec succès.');
+
+            }
+            else
+            {
+                return redirect()->back()->with('error_msg', 'Vous ne pouvez pas supprimer votre propre compte.');
+            }
            
-            return redirect()->route('administrateurs')->with('success', 'L\'administrateur  á été  supprimé avec succès.');
         }
         catch
         (Exception $e)
@@ -153,6 +167,13 @@ class AdminController extends Controller
                 $user->password = Hash::make($request->password);
                 $user->email_verified_at = Carbon::now();
                 $user->update();
+
+                //Si la mise a jour a ete un success alors on supprime tous les code de verification
+                 if($user)
+                {
+                    ResetCodePassword::where('email', $user->email)->delete();
+                }
+
 
                 return redirect()->route('login')->with('success', 'Vos accèss ont été correctement defini .');
             }

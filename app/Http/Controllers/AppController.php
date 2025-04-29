@@ -32,21 +32,21 @@ class AppController extends Controller
         if($defaultPaymentDateQuery)
         {
             $defaultPaymentDate = $defaultPaymentDateQuery->value;
-            $convertedPymentDate = intval($defaultPaymentDate);
+            $convertedPaymentDate = intval($defaultPaymentDate);
 
-            if($convertedPymentDate > $currentDate)
+            if($convertedPaymentDate > $currentDate)
             {
-                $paymentNotification = "Le paiement est prévu pour le $defaultPaymentDate. de ce mois";
+                $paymentNotification = 'Le paiement est prévu pour le $defaultPaymentDate. de ce mois';
             }
-            elseif($convertedPymentDate == $currentDate)
+            elseif($convertedPaymentDate == $currentDate)
             {
-                $paymentNotification = "Le paiement est prévu pour aujourd'hui";
+                $paymentNotification = 'Le paiement est prévu pour aujourd\'hui';
             }
             else
             {
                 $nextMonth = Carbon::now()->addMonth();
                 $nextMonthName = $nextMonth->format('F');
-                $paymentNotification = "Le paiement est prévu pour le " . $defaultPaymentDate." du  mois de " .$nextMonthName;
+                $paymentNotification = ' Le paiement est prévu pour le '. $defaultPaymentDate." du  mois de " .$nextMonthName;
             }
 
         }

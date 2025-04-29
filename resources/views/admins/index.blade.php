@@ -19,16 +19,7 @@
 					                </form>
 					                
 							    </div><!--//col-->
-							    <div class="col-auto">
-								    
-								    <select class="form-select w-auto" >
-										  <option selected value="option-1">All</option>
-										  <option value="option-2">This week</option>
-										  <option value="option-3">This month</option>
-										  <option value="option-4">Last 3 months</option>
-										  
-									</select>
-							    </div>
+							   
 							    <div class="col-auto">						    
 								    <a class="btn app-btn-secondary" href="{{ route('administrateurs.create') }}">
 									    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download me-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -43,6 +34,13 @@
 							@if (Session::get('success'))
 								<div class="alert alert-success " role="alert">
 									{{ Session::get('success') }}
+								</div>
+							
+							@endif
+
+							@if (Session::get('error_msg'))
+								<div class="alert alert-danger " role="alert">
+									{{ Session::get('error_msg') }}
 								</div>
 							
 							@endif
@@ -83,7 +81,7 @@
 
 										
                                                     <td class="cell">
-														<a class="btn-sm app-btn-secondary" href="{{ route('administrateurs.edit', $admin->id) }}">Modifier</a>
+														<!-- <a class="btn-sm app-btn-secondary" href="{{ route('administrateurs.edit', $admin->id) }}">Modifier</a> -->
 														<a class="btn-sm app-btn-secondary" href="{{ route('administrateurs.delete', $admin->id) }}">Supprimer</a>
 													</td>
                                                 </tr>

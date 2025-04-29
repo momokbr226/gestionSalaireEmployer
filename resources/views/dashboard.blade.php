@@ -6,10 +6,8 @@
 	<div class="row mt-2 mb-2">
 		@if ($paymentNotification)
 			<div class="alert alert-warning">{{ $paymentNotification }}</div>
-		
 		@endif
-	</div>
-				    
+	</div>    
 			    <div class="row g-4 mb-4">
 				    <div class="col-6 col-lg-3">
 					    <div class="app-card app-card-stat shadow-sm h-100">

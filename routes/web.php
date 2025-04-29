@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\PaymentController;
 use App\Models\Configuration;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,7 @@ Route::middleware('auth')->group(function ()
         Route::post('/store', [EmployerController::class, 'store'])->name('employer.store');
         Route::put('/employers/update/{employer}',[EmployerController::class, 'update'])->name('employer.update');
         Route::get('/edit/{employer}', [EmployerController::class, 'edit'])->name('employer.edit'); 
-        Route::get('/departements/{departement}',[DepartementController::class, 'delete'])->name('departement.delete');
+        Route::get('/departements/{employer}',[DepartementController::class, 'delete'])->name('employer.delete');
 
     });
 
@@ -69,12 +70,21 @@ Route::middleware('auth')->group(function ()
         Route::get('/', [AdminController::class, 'index'])->name('administrateurs');
         Route::get('/create', [AdminController::class, 'create'])->name('administrateurs.create'); 
         Route::post('/create', [AdminController::class, 'store'])->name('administrateurs.store');
+        Route::get('/delete/{user}',[AdminController::class, 'delete'])->name('administrateurs.delete');
         Route::get('/edit/{administrateur}', [AdminController::class, 'edit'])->name('administrateurs.edit'); 
         Route::put('/update/{administrateur}',[AdminController::class, 'update'])->name('administrateurs.update');
-        Route::get('/delete/{administrateur}',[AdminController::class, 'delete'])->name('administrateurs.delete');
 
     });
 
+    //PAIEMENTS
+    Route::prefix('paiements')->group(function(){
+        Route::get('/',[PaymentController::class, 'index'])->name('payments');
+        Route::get('/make', [PaymentController::class, 'initPayment'])->name('payment.init');
+    });
+
+       
+
+    
     //Validation de compte
     Route::get('/validate-account/{email}', [AdminController::class, 'defineAccess']);
 
@@ -100,7 +110,7 @@ Route::middleware('auth')->group(function ()
 
     // Route::put('/employers/update/{employer}',[EmployerController::class, 'update'])->name('employer.update');
 
-    // Route::get('/employers/{employer}',[EmployerController::class, 'delete'])->name('employer.delete');
+    //Route::get('/employers/{employer}',[EmployerController::class, 'delete'])->name('employer.delete');
 
     //DEPARTEMENT
     // Route::get('/departements', [DepartementController::class, 'index'])->name('departement.index');

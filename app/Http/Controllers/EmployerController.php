@@ -72,6 +72,7 @@ class EmployerController extends Controller
     {
         try
         {
+            
             $employer->delete() ;
            
             return redirect()->route('employer.index')->with('success', 'L\'employer  á été  supprimé avec succès.');

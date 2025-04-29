@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salaires', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->string('reference');
             $table->unsignedBigInteger('employer_id');
             $table->foreign('employer_id')->references('id')->on('employers');
-            $table->integer('montant')->nullable();
+            $table->string('amount');
+            $table->enum('status', ['SUCCESS','FAILED'])->default('SUCCESS');
+            $table->enum('month',['JANVIER','FEVRIER','MARS','AVRIL','MAI','JUIN','JUILLET','AOUT','SEPTEMBRE','OCTOBRE','NOVEMBRE','DECEMBRE' ]);
+            $table->string('year');
+            $table->dateTime('launch_date');
+            $table->dateTime('done_time');
             $table->timestamps();
         });
     }
@@ -25,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salaires');
+        Schema::dropIfExists('payments');
     }
 };

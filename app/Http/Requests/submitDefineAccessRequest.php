@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator\validateExist;
 
 class submitDefineAccessRequest extends FormRequest
 {
@@ -23,6 +25,8 @@ class submitDefineAccessRequest extends FormRequest
     {
         return [
             //
+            'code' => 'required|exists:reset_code_passwords,code',
+            'code',
             'password' => 'required|same:confirm_password',
             'confirm_password' => 'required',
 
@@ -36,6 +40,12 @@ class submitDefineAccessRequest extends FormRequest
             'confirm_password.required' => 'La confirmation du mot de passe est requise',
             'confirm_password.same' => 'La confirmation du mot de passe est incorrecte',
             'password.same' => 'Les mots de passe ne correspondent pas',
+            'code.required' => 'Le code est requis',
+            'code.exists' => 'Le code n\'est pas valide.Consultez votre boite mail pour le code de verification',
         ];
     }
+
+
 }
+        
+        
