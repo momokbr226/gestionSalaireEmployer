@@ -77,6 +77,8 @@
                                                 <th class="cell">Mois</th>
 												<th class="cell">Année</th>
                                                 <th class="cell">status</th>
+                                                <th class="cell"></th>
+												
                                                 
 											</tr>
 										</thead>
@@ -98,7 +100,12 @@
                                                         <span class="badge bg-success">{{ $payment->status }}</span>
                                                     </td>
                                                     @endif 
-                                                    
+													<td class="cell" >
+														<a href="{{ route('payment.download', $payment->id) }}">
+															<i class="fa fa-download"></i>
+														</a>
+													</td>
+                                                        
                                                 </tr>
                                             @empty
                                                 <tr>

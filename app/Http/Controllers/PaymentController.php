@@ -6,8 +6,10 @@ use App\Models\Payment;
 use App\Models\Configuration;
 use Carbon\Carbon;
 use App\Models\Employer;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 
 class PaymentController extends Controller
@@ -97,5 +99,26 @@ class PaymentController extends Controller
         //rediriger l'utilisateur
         return redirect()->back()->with('success', 'Les paiements ont été effectués avec succès pour le mois de '.$currentMonthInFrench.' '.$currentYear);
     }
+
+    public function download_invoice(Payment $payment)
+    {
+        try
+        {
+            $fullPaymentInfo = Payment::with('employer')->find($payment->id);
+            //Generer le pdf
+            $pdf = PDF::loadView('paiements.facture', compact('fullPaymentInfo'));
+            return $pdf->download('facture_'.$fullPaymentInfo->employer->nom.'.pdf');
+
+
+
+           //return view('paiements.facture', compact('fullPaymentInfo'));
+
+
+        }
+        catch(Exception $e)
+        {
+            return redirect()->back()->with('error_msg', 'Erreur lors du téléchargement de la facture');
+        }
     
+    }
 }

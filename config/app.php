@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Facade;
 use App\Helpers\ConfigHelper;
 use App\Models\Configuration;
 use Illuminate\Support\ServiceProvider;
+use Barryvdh\DomPDF\ServiceProvider as DomPDFServiceProvider;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+
 return [
 
     /*
@@ -127,7 +130,9 @@ return [
     ],
 
     'aliases' =>Facade::defaultAliases()->merge( [
-        'AppNameGetter' => ConfigHelper::class
+        'AppNameGetter' => ConfigHelper::class,
+        'PDF' => PDF::class,
+        
     
     ])->toArray(),  
 

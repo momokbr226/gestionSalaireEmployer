@@ -19,10 +19,11 @@
             <b style="font-size: 10px; color: red;">
                 {{ session('error_msg') }}</b> 
         @endif
+        
+        
+        <input type="email" name="email" class="email" placeholder="Entrer votre email" />
 
-        <input type="email" name="email" class="email" />
-
-        <input type="password" name="password" class="email" />
+        <input type="password" name="password" class="email" placeholder="Entrer votre mot de passe" />
 
         <div class="btn-container">
             <button type="submit"> Connexion</button>
