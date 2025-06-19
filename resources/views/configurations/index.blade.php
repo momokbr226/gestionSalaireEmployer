@@ -11,10 +11,11 @@
 							    <div class="col-auto">
 								    <form class="table-search-form row gx-1 align-items-center">
 					                    <div class="col-auto">
-					                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
+					                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Effectuer votre recherche ici
+											">
 					                    </div>
 					                    <div class="col-auto">
-					                        <button type="submit" class="btn app-btn-secondary">Search</button>
+					                        <button type="submit" class="btn app-btn-secondary">Rechercher</button>
 					                    </div>
 					                </form>
 					                

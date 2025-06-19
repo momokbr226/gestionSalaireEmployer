@@ -97,63 +97,68 @@ Route::middleware('auth')->group(function ()
 
 });
 
+//Validation de compte
+//Route::get('/validate-account/{email}', [AdminController::class, 'defineAccess']);
+
+//Validation de compte
+//Route::post('/validate-account/{email}', [AdminController::class, 'submitDefineAccess'])->name('submitDefineAccess');
 
 //TEST AVANT LA CREATION DE L'ADMIN POUR SE CONNECTER
 
 //EMPLOYER
-    // Route::get('/employers/create', [EmployerController::class, 'create'])->name('employer.create'); 
+// Route::get('/employers/create', [EmployerController::class, 'create'])->name('employer.create'); 
 
-    //  Route::post('/employers/store', [EmployerController::class, 'store'])->name('employer.store');
+//  Route::post('/employers/store', [EmployerController::class, 'store'])->name('employer.store');
 
-    // Route::get('/employers', [EmployerController::class, 'index'])->name('employer.index'); 
+// Route::get('/employers', [EmployerController::class, 'index'])->name('employer.index'); 
 
-    // Route::get('/employers/edit/{employer}', [EmployerController::class, 'edit'])->name('employer.edit'); 
+// Route::get('/employers/edit/{employer}', [EmployerController::class, 'edit'])->name('employer.edit'); 
 
-    // Route::put('/employers/update/{employer}',[EmployerController::class, 'update'])->name('employer.update');
+// Route::put('/employers/update/{employer}',[EmployerController::class, 'update'])->name('employer.update');
 
-    //Route::get('/employers/{employer}',[EmployerController::class, 'delete'])->name('employer.delete');
+//Route::get('/employers/{employer}',[EmployerController::class, 'delete'])->name('employer.delete');
 
-    //DEPARTEMENT
-    // Route::get('/departements', [DepartementController::class, 'index'])->name('departement.index');
-    // Route::get('/departements/create', [DepartementController::class, 'create'])->name('departement.create');
+//DEPARTEMENT
+// Route::get('/departements', [DepartementController::class, 'index'])->name('departement.index');
+// Route::get('/departements/create', [DepartementController::class, 'create'])->name('departement.create');
 
-    //  Route::post('/departement/create', [DepartementController::class, 'store'])->name('departement.store'); 
+//  Route::post('/departement/create', [DepartementController::class, 'store'])->name('departement.store'); 
 
-    //  Route::get('/departements/edit/{departement}', [DepartementController::class, 'edit'])->name('departement.edit'); 
+//  Route::get('/departements/edit/{departement}', [DepartementController::class, 'edit'])->name('departement.edit'); 
 
-    //  Route::put('/departements/update/{departement}',[DepartementController::class, 'update'])->name('departement.update');
+//  Route::put('/departements/update/{departement}',[DepartementController::class, 'update'])->name('departement.update');
 
-    //  Route::get('/departements', [DepartementController::class, 'index'])->name('departement.index'); 
+//  Route::get('/departements', [DepartementController::class, 'index'])->name('departement.index'); 
 
-    //  Route::get('/departements/{departement}',[DepartementController::class, 'delete'])->name('departement.delete');
+//  Route::get('/departements/{departement}',[DepartementController::class, 'delete'])->name('departement.delete');
 
 
-    //DASHBOARD
-    //Route::get('dashboard', [AppController::class, 'index'])->name('dashboard');
+//DASHBOARD
+//Route::get('dashboard', [AppController::class, 'index'])->name('dashboard');
 
 
     //CONFIGURATION
     //  Route::get('configurations', [ConfigurationController::class, 'index'])->name('configurations');
 
-    //  Route::get('configurations/create', [ConfigurationController::class, 'create'])->name('configurations.create');
+   // Route::get('configurations/create', [ConfigurationController::class, 'create'])->name('configurations.create');
 
-    // Route::post('configurations/store', [ConfigurationController::class, 'store'])->name('configurations.store');
+     //Route::post('configurations/store', [ConfigurationController::class, 'store'])->name('configurations.store');
 
-    // Route::get('configurations/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('configurations.delete');
+   // Route::get('configurations/delete/{configuration}', [ConfigurationController::class, 'delete'])->name('configurations.delete');
 
     // //ADMINISTRATEUR
     // Route::get('/administrateurs', [AdminController::class, 'index'])->name('administrateurs');
 
-    //Route::get('/administrateurs/create', [AdminController::class, 'create'])->name('administrateurs.create'); 
+   // Route::get('/administrateurs/create', [AdminController::class, 'create'])->name('administrateurs.create'); 
 
     //Route ::post('/administrateurs/create', [AdminController::class, 'store'])->name('administrateurs.store');
 
-    // Route::get('/administrateurs/edit/{administrateur}', [AdminController::class, 'edit'])->name('administrateurs.edit'); 
+     //Route::get('/administrateurs/edit/{administrateur}', [AdminController::class, 'edit'])->name('administrateurs.edit'); 
 
-    // Route::put('/administrateurs/update/{administrateur}',[AdminController::class, 'update'])->name
-    // ('administrateurs.update');
+     //Route::put('/administrateurs/update/{administrateur}',[AdminController::class, 'update'])->name
+     //('administrateurs.update');
 
-    // Route::get('/administrateurs/delete/{administrateur}',[AdminController::class, 'delete'])->name('administrateurs.delete');
+   // Route::get('/administrateurs/delete/{administrateur}',[AdminController::class, 'delete'])->name('administrateurs.delete');
 
 
 

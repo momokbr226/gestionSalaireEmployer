@@ -9,6 +9,7 @@
 
     <div class="box">
         <h1>Espace de connexion</h1>
+        {{Hash::make('admin1234')}}
 
         @if (Session::get('success'))
             <b style="font-size: 10px; color: green;">

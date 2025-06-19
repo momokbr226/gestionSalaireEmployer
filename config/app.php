@@ -129,11 +129,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'aliases' =>Facade::defaultAliases()->merge( [
-        'AppNameGetter' => ConfigHelper::class,
-        'PDF' => PDF::class,
-        
-    
+    'aliases' => Facade::defaultAliases()->merge( [
+        'AppNameGetter' => ConfigHelper::class
+
     ])->toArray(),  
 
 ];
